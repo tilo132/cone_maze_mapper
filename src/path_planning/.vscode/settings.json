@@ -1,0 +1,39 @@
+{
+	"ros.distro": "humble",
+	"python.autoComplete.extraPaths": [
+		"/opt/ros/humble/lib/python3.10/site-packages",
+		"/opt/ros/humble/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/rqt_controller_manager/lib/python3.10/site-packages",
+		"/home/tilo/ros2_ws/install/realsense2_camera_msgs/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/quaternion_tester/lib/python3.10/site-packages",
+		"/home/tilo/ros2_ws/install/prototype/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/planned_trajectory2path/lib/python3.10/site-packages",
+		"/home/tilo/ros2_ws/install/path_planning/lib/python3.10/site-packages",
+		"/home/tilo/ros2_ws/install/path_planing/lib/python3.10/site-packages",
+		"/home/tilo/ros2_ws/install/nav2_sms_behavior/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/interfaces/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/cat_cones_msg2fs_msgs_track/lib/python3.10/site-packages",
+		"/home/tilo/ros2_ws/install/fszhaw_msgs/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/fs_msgs/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/cone_msg/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/cat_msgs_ros/local/lib/python3.10/dist-packages"
+	],
+	"python.analysis.extraPaths": [
+		"/opt/ros/humble/lib/python3.10/site-packages",
+		"/opt/ros/humble/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/rqt_controller_manager/lib/python3.10/site-packages",
+		"/home/tilo/ros2_ws/install/realsense2_camera_msgs/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/quaternion_tester/lib/python3.10/site-packages",
+		"/home/tilo/ros2_ws/install/prototype/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/planned_trajectory2path/lib/python3.10/site-packages",
+		"/home/tilo/ros2_ws/install/path_planning/lib/python3.10/site-packages",
+		"/home/tilo/ros2_ws/install/path_planing/lib/python3.10/site-packages",
+		"/home/tilo/ros2_ws/install/nav2_sms_behavior/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/interfaces/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/cat_cones_msg2fs_msgs_track/lib/python3.10/site-packages",
+		"/home/tilo/ros2_ws/install/fszhaw_msgs/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/fs_msgs/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/cone_msg/local/lib/python3.10/dist-packages",
+		"/home/tilo/ros2_ws/install/cat_msgs_ros/local/lib/python3.10/dist-packages"
+	]
+}

@@ -1,0 +1,36 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/opt/ros/humble/include/**",
+        "/home/tilo/ros2_ws/install/transmission_interface/include/**",
+        "/home/tilo/ros2_ws/install/ros2_control_test_assets/include/**",
+        "/home/tilo/ros2_ws/install/realsense2_camera/include/**",
+        "/home/tilo/ros2_ws/install/realsense2_camera_msgs/include/**",
+        "/home/tilo/ros2_ws/install/pcl_ros/include/**",
+        "/home/tilo/ros2_ws/install/pcl_conversions/include/**",
+        "/home/tilo/ros2_ws/install/openslam_gmapping/include/**",
+        "/home/tilo/ros2_ws/install/nav2_straightline_planner/include/**",
+        "/home/tilo/ros2_ws/install/nav2_sms_behavior/include/**",
+        "/home/tilo/ros2_ws/install/joint_limits/include/**",
+        "/home/tilo/ros2_ws/install/interfaces/include/**",
+        "/home/tilo/ros2_ws/install/global_cones_msg/include/**",
+        "/home/tilo/ros2_ws/install/fszhaw_msgs/include/**",
+        "/home/tilo/ros2_ws/install/fs_msgs/include/**",
+        "/home/tilo/ros2_ws/install/cone_msg/include/**",
+        "/home/tilo/ros2_ws/install/cat_msgs_ros/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

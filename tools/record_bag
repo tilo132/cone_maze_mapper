@@ -1,0 +1,5 @@
+#export ROS_DISCOVERY_SERVER="192.168.2.126:11811"
+#export FASTRTPS_DEFAULT_PROFILES_FILE=/home/cat/super_client_configuration_file.xml
+#ros2 topic list
+
+ros2 bag record /battery_state /camera_info /diagnostics /imu /joint_states /magnetic_field /odom /sensor_state /tf /tf_static /velodyne_points /odom/wheels /bbox /cones/laserscan /cones/pointcloud /map /cones/cones /cones/map /poi/map --compression-format=zstd --compression-mode=file

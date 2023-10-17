@@ -1,0 +1,27 @@
+# Download container image "ros-headless.tar"
+
+# clone git repo FTF-v1, its on the BIBA gitlab
+# Import container image
+	docker import ros-headless.tar localhost/ros
+
+# Check that import was sucessfully imported
+	docker images
+		
+# Create container
+# Run this from the cloned git repo
+	docker run -it --network host --name ros -v $PWD:/workspace localhost/ros bash
+
+# Testing the setup in the container
+# If your not in /workspace already navigate there
+	. install/setup.bash
+	ros2 node list
+
+# If you get the ros2 not found error
+	. /opt/ros/humble/setup.bash
+
+# Starting the Dummy image_provider node
+	ros2 run dummy img
+
+
+#Tutorials
+#https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html

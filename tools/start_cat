@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if ! tmux has-session -t discovery;then
+     tmux new-session -d -s discovery
+     tmux send-keys -t discovery "cd ~/workspace" C-m
+     
+     tmux neww -t discovery -n servers
+     tmux send-keys -t discovery:servers "fastdds discovery -i 0 -l 192.168.2.126 -p 11811" C-m
+     tmux split-window -t discovery -v
+     tmux send-keys -t discovery:servers "fastdds discovery -i 1 -l 192.168.3.2 -p 11812" C-m
+     tmux neww -t discovery -n ros
+
+     tmux send-keys -t discovery:ros "export TURTLEBOT3_MODEL=waffle" C-m
+     tmux send-keys -t discovery:ros ". tools/workspace.bash -sd3" C-m
+     tmux send-keys -t discovery:ros "ros2 launch launch/ftf.py" C-m
+     tmux split-window -t discovery:ros -v
+     tmux send-keys -t discovery:ros "ros2 launch launch/slam_offline.py" C-m
+     tmux split-window -t discovery:ros -h
+     tmux send-keys -t discovery:ros "ros2 launch launch/logistic.py" C-m
+     tmux split-window -t discovery:ros -h
+     tmux send-keys -t discovery:ros "ros2 launch launch/nav2.py"
+     tmux split-window -t discovery:ros.2 -h
+     tmux send-keys -t discovery:ros "htop" C-m
+     tmux split-window -t discovery:ros.2 -h
+     tmux split-window -t discovery:ros.1 -h
+     # tmux send-keys -t discovery:ros "ros2 run turtlebot3_teleop teleop_keyboard" C-m
+fi

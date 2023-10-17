@@ -1,0 +1,1 @@
+podman run -it -v ./:/workspace:z --network host --name ros localhost/ros-v2:latest -- bash

@@ -1,0 +1,20 @@
+from launch import LaunchDescription
+from launch_ros.actions import Node
+from launch.substitutions import LaunchConfiguration
+
+
+def generate_launch_description():
+
+    param_url = LaunchConfiguration(
+    	'param_url',
+    	default='config/ekf.yaml')
+    
+    localization = Node(
+        package = "robot_localization",
+        executable = "ekf_node",
+        parameters = [param_url],
+        remappings = [('/odometry/filtered', '/odom')]
+    )
+    return LaunchDescription([
+        localization
+    ])

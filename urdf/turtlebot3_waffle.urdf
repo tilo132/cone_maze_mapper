@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<robot name="cat" xmlns:xacro="http://ros.org/wiki/xacro">
+        
+    <!--origin of the robot-->
+    <link name="base_footprint">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="8.2573504e-01"/>
+            <inertia ixx="7.2397393e-01" ixy="4.686399e-10" ixz="-1.09525703e-08" iyy="7.2397393e-01" iyz="2.8582649e-09" izz="6.53050163e-01"/>
+        </inertial>
+    </link>
+
+    <!--base of the robot-->
+    <link name='base_link'></link>
+
+    <!--visual base of the robot-->
+    <link name='base_link_visual'>
+        <visual name="base_visual">
+            <geometry>
+                <box size="0.26 0.26 0.055"/>
+            </geometry>
+        </visual>
+        <collision name="base_collision">
+            <geometry>
+                <box size="0.26 0.26 0.055"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name='adjusted_base_link'></link>
+
+    <!--connective construction between base an lidar-->
+    <link name='connector_link'>
+        <visual name="connector_visual">
+            <geometry>
+                <box size="0.13 0.13 0.088"/>
+            </geometry>
+        </visual>
+        <collision name="connector_collision">
+            <geometry>
+                <box size="0.13 0.13 0.088"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!--imu-->
+    <link name="imu_link"></link>
+
+    <!--left wheel-->
+    <link name="wheel_left_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="2.8498940e-02"/>
+            <inertia ixx="1.8158194e-03" ixy="-9.3392e-12" ixz="1.04909e-11" iyy="3.2922126e-03" iyz="5.75694e-11" izz="1.8158194e-03"/>
+        </inertial>
+        <collision name="wheel_left_collision">
+            <geometry>
+                <cylinder length="0.018" radius="0.033"/>
+            </geometry>
+        </collision>
+
+        <visual name="wheel_left_visual">
+            <geometry>
+                <cylinder length="0.018" radius="0.033"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!--right wheel-->
+    <link name="wheel_right_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="2.8498940e-02"/>
+            <inertia ixx="1.8158194e-03" ixy="-9.3392e-12" ixz="1.04909e-11" iyy="3.2922126e-03" iyz="5.75694e-11" izz="1.8158194e-03"/>
+        </inertial>            
+        <collision name="wheel_right_collision">
+            <geometry>
+                <cylinder length="0.018" radius="0.033"/>
+            </geometry>
+        </collision>
+
+        <visual name="wheel_right_visual">
+            <geometry>
+                <cylinder length="0.018" radius="0.033"/>
+            </geometry>
+        </visual>
+    </link>
+
+    <!--left (in driving direction) steel ball underneath the robot-->
+    <link name='caster_back_link'>                
+        <visual name="caster_back_visual">
+            <geometry>
+                <cylinder length="0.014" radius="0.01"/>
+            </geometry>
+        </visual>
+        <collision name='caster_back_collision'>
+            <geometry>
+                <cylinder length="0.014" radius="0.01"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!--velodyne lidar-->
+    <link name="velodyne_base_link"></link>
+    <link name="velodyne_link">
+        <visual name="velodyne_visual">
+            <geometry>
+                <cylinder length="0.073" radius="0.055"/>
+            </geometry>
+        </visual>
+    
+        <collision name="velodyne_collsision">
+            <geometry>
+                <cylinder length="0.073" radius="0.055"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <!--camera on top of lidar-->
+    <link name="camera_link">
+        <visual name="camera_visual">
+            <geometry>
+                <box size="0.022 0.107 0.022"/>
+            </geometry>
+        </visual>
+
+        <collision name="camera_collision">
+            <geometry>
+                <box size="0.022 0.107 0.022"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="base_joint" type="fixed">
+        <parent link="base_footprint"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <child link="base_link"/>
+    </joint>
+
+    <!--joint between base and base visual-->
+    <joint name="base_visual_joint" type="fixed">
+        <parent link="adjusted_base_link"/>
+        <origin xyz="0 0 0.0275" rpy="0 0 0"/>
+        <child link="base_link_visual"/>
+    </joint>
+
+    <!--joint between base and origin-->
+    <joint name="adjusted_base_joint" type="fixed">
+        <parent link="base_link"/>
+        <origin xyz="0 0 0.01" rpy="0 0 0"/>
+        <!-- <origin xyz="0 0 0.018" rpy="0 0.0667 0"/> -->
+        <child link="adjusted_base_link"/>
+    </joint>
+
+    <!--joint between base and left wheel-->
+    <joint name="wheel_left_joint" type="continuous">
+        <parent link="adjusted_base_link"/>
+        <child link="wheel_left_link"/>
+        <axis xyz="0 0 1"/>
+        <origin xyz="0.07 0.144 0.023" rpy="-1.57 0 0"/>
+    </joint>
+
+    <!--joint between base and right wheel-->
+    <joint name="wheel_right_joint" type="continuous"> 
+        <parent link="adjusted_base_link"/>
+        <child link="wheel_right_link"/>
+        <axis xyz="0 0 1"/>
+        <origin xyz="0.07 -0.144 0.023" rpy="-1.57 0 0"/>
+    </joint>
+
+    <!--joint between base and left (in driving direction) steel ball-->
+    <joint name='caster_back_joint' type='fixed'> 
+        <parent link="adjusted_base_link"/>
+        <child link="caster_back_link"/>
+        <origin xyz="-0.135 0.0 0.0" rpy="-1.57 0 0"/>
+    </joint>
+
+
+    <!--joint between base and imu-->
+    <joint name="imu_joint" type="fixed"> 
+        <parent link="adjusted_base_link"/>
+        <child link="imu_link"/>
+        <origin xyz="0.075 0 0.0" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+    </joint>
+
+    <!--joint between base and lidar-->
+    <joint name="velodyne_base_joint" type="fixed"> 
+        <parent link="adjusted_base_link"/>
+        <child link="velodyne_base_link" />
+        <origin xyz="-0.02 0 0.121" rpy="0 0.261799 0"/>
+    </joint>
+    <!-- join between velodyne base and velodyne center-->
+    <joint name="velodyne_joint" type="fixed"> 
+        <parent link="velodyne_base_link"/>
+        <child link="velodyne_link" />
+        <origin xyz="0 0 0.0377" rpy="0 0 0"/>
+    </joint>
+
+    <!--joint between joint and connective construction-->
+    <joint name="connector_joint" type="fixed"> 
+        <parent link="adjusted_base_link"/>
+        <origin xyz="-0.048 0 0.0715" rpy="0 0 0"/>                
+        <child link="connector_link" />
+    </joint>
+
+    <!--joint between the center of the lidar and camera lense-->
+    <joint name="camera_joint" type="fixed"> 
+        <parent link="velodyne_base_link"/>
+        <child link="camera_link"/>
+        <!-- <origin xyz="0 0 0.0475" rpy="0 0 0"/>-->
+        <origin xyz="-0.035 0 0.105" rpy="0 0 0"/>
+    </joint>
+</robot>

@@ -1,0 +1,27 @@
+#!/bin/bash
+
+/bin/sleep 30
+sudo /etc/init.d/chrony stop
+/bin/sleep 2
+sudo /etc/init.d/chrony start
+# /bin/sleep 10
+
+# sudo /etc/init.d/chrony stop
+# sudo /etc/init.d/chrony start
+# /bin/sleep 20
+
+
+if ! tmux has-session -t ros;then
+	tmux new-session -d -s ros
+	tmux send-keys -t ros 'export ROS_DISCOVERY_SERVER=";192.168.3.2:11812"' C-m
+	tmux send-keys -t ros "export ROS_DOMAIN_ID=3" C-m
+	tmux send-keys -t ros "source /opt/ros/humble/setup.bash" C-m
+	tmux send-keys -t ros "source ~/workspace/install/setup.bash" C-m
+	tmux send-keys -t ros "cd ~/workspace" C-m
+	tmux send-keys -t ros "ros2 launch launch/kitty.py" C-m
+fi
+
+#/bin/sleep 10
+
+#sudo /etc/init.d/chrony stop
+#sudo /etc/init.d/chrony start

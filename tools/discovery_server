@@ -1,0 +1,4 @@
+#!/bin/bash
+ip=$(cat tools/super_client_configuration_file.xml | grep address | sed 's|<[/]*address>||g')
+port=$(cat tools/super_client_configuration_file.xml | grep port | sed 's|<[/]*[^>]*>||g')
+fastdds discovery -i 0 -l $ip -p $port

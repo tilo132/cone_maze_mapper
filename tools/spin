@@ -1,0 +1,1 @@
+ros2 action send_goal spin nav2_msgs/action/Spin "{'target_yaw': 6.2}"

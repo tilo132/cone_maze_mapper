@@ -1,0 +1,4 @@
+ssh kitty@192.168.3.3 "ntpdate -q 192.168.3.2"
+ssh kitty@192.168.3.3 "sudo /etc/init.d/chrony stop"
+ssh kitty@192.168.3.3 "sudo /etc/init.d/chrony start"
+ssh kitty@192.168.3.3 "ntpdate -q 192.168.3.2"

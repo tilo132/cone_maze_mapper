@@ -1,0 +1,5 @@
+<library path="cat_nav2_layers">
+  <class name="cat_nav2::WallLayer" type="cat_nav2::WallLayer" base_class_type="nav2_costmap_2d::Layer">
+    <description>Projects the walls calculated from the cones onto a Layer</description>
+  </class>
+</library>

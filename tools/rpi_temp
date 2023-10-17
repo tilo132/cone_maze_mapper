@@ -1,0 +1,1 @@
+watch "/usr/bin/vcgencmd measure_temp && /usr/bin/vcgencmd get_throttled"

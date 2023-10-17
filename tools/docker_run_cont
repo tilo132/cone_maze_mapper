@@ -1,0 +1,1 @@
+docker run -it -v $PWD/:/workspace --network host --name ros localhost/ros-v2:latest bash
