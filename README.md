@@ -63,7 +63,7 @@ This repository heavily depends on various ROS2 packages. Most notably being:
 
 Clone the latest version of this repository:
 ```bash
-git clone git@gitlab.ips.biba.uni-bremen.de:ftf-navi2/ftf-v1.git
+git clone https://github.com/tilo132/cone_maze_mapper.git
 ```
 
 Make sure to source the ROS2 installation:
